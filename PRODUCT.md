@@ -4,40 +4,40 @@
 
 product
 
-## Users
+## Intended users
 
-Two overlapping groups, roughly 70/30:
-- **Casual geo-trivia players (majority)**: play 1-2 quick rounds a day via the Daily Challenge, chasing a streak and leaderboard bragging rights. Low commitment, drop in/out in under a minute.
-- **Competitive score-chasers (minority)**: grind Arcade mode for high scores, spend coins across the 12 mini-games, and push toward the Atlas Jackpot boss stage (unlocked at L5·L10·L15).
+The product is designed for two overlapping use cases:
+- **Casual geo-trivia players:** a short Daily Challenge, with optional streak and leaderboard features.
+- **Competitive score-chasers:** repeatable Arcade rounds, coin use across the mini-games, and access to the separate Atlas Jackpot run for signed-in players with five tokens.
 
 Both groups share one app shell: a game-select grid, a Daily/Arcade mode-select modal per game, in-game HUDs, and a coin economy that gates Arcade attempts.
 
 ## Product Purpose
 
-A retro arcade cabinet of geography mini-games (GeoRadar, Capital Strike, Flag Frenzy, Peaks & Valleys, Tectonic Snap, Frontier Face-Off, One Strike, Urban Legends, Skyline Silhouette, Border Blitz, Stat Attack, plus the Atlas Jackpot boss stage). Success looks like: a player opens the arcade, immediately reads which game does what and what mode they're in, and gets clean instant feedback on every guess — no dead air, no ambiguity about score or state.
+A retro arcade cabinet of geography mini-games (GeoRadar, Capital Strike, Flag Frenzy, Peaks & Valleys, Tectonic Snap, Frontier Face-Off, One Strike, Urban Legends, Skyline Silhouette, Border Blitz, Stat Attack, plus the Atlas Jackpot boss stage). Success looks like: a player opens the arcade, immediately reads which game does what and what mode they're in, and gets clean instant feedback on every guess, with no dead air, no ambiguity about score or state.
 
-## Brand Personality
+## Brand personality
 
-Punchy, retro, precise — a real arcade cabinet, not a mobile hyper-casual skin.
+Punchy, retro, precise: a real arcade cabinet, not a mobile hyper-casual skin.
 - **Retro / nostalgic**: 80s-90s arcade cabinet, CRT scanlines, pixel font (Press Start 2P + VT323), neon glow on dark.
 - **Punchy / high-energy**: fast feedback, instant score reveals, bold neon accents, confident retro-UI chrome (`[ BUTTON ]` bracket styling, blinking CTAs).
-- **Precise / educational**: geography accuracy is the actual product — real distance-based scoring, real country/city data. The retro skin sits on top of a genuinely accurate geo-quiz engine, never at the expense of it.
-- Accessible by design intent: high-energy does not mean high-risk — no strobe/seizure-triggering effects, ever (see Accessibility).
+- **Precise / educational**: distance-based scoring and country/city data form the quiz engine; the retro presentation sits around that content.
+- Accessible by design intent: the motion target is to avoid strobing. The repository does not include a photosensitivity safety assessment.
 
 ## Anti-references
 
-Explicitly not: generic mobile hyper-casual (bright rounded gradients, cartoon mascots, aggressive ad-style interstitials, Candy-Crush/King-style chrome). Atlas Arcade is a cabinet game, not a gacha app — no forced-cheerful mascots, no gradient-soup buttons, no ad-shaped UI pretending to be content.
+Explicitly not: generic mobile hyper-casual (bright rounded gradients, cartoon mascots, aggressive ad-style interstitials, Candy-Crush/King-style chrome). Atlas Arcade is a cabinet game, not a gacha app. No forced-cheerful mascots, no gradient-soup buttons, no ad-shaped UI pretending to be content.
 
-## Design Principles
+## Design principles
 
-1. **Instant feedback, always.** Every guess, reveal, and mode transition must read as immediate — no visible network/render lag on the comparison moment (see the Peaks & Valleys image-preload fix as the standard to match elsewhere).
-2. **One accent color per game, used consistently.** Each of the 12 games owns a single neon identity color (already codified in `src/lib/gameTheme.ts`) carried through its card, mode-select modal, and in-game HUD. Yellow is reserved exclusively for Atlas Jackpot.
+1. **Instant feedback, always.** Every guess, reveal, and mode transition must read as immediate, with no visible network/render lag on the comparison moment (see the Peaks & Valleys image-preload fix as the standard to match elsewhere).
+2. **One accent colour per game, used consistently.** Each of the 12 games owns a single neon identity colour (already codified in `src/lib/gameTheme.ts`) carried through its card, mode-select modal, and in-game HUD. Yellow is reserved exclusively for Atlas Jackpot.
 3. **Retro chrome, not retro friction.** Pixel fonts and bracket-button styling (`[ PLAY ]`) are the voice; they must never come at the cost of tap targets, readability, or load speed.
-4. **Explicit state, explicit close.** Modals close only via their `X`/`[ CLOSE ]` control, never backdrop click — state changes (mode chosen, coin spent, answer locked) must be deliberate, not accidental.
-5. **High-energy, zero seizure-risk.** Flicker/glitch/blink effects stay subtle and looping at safe, non-strobing rates (see `body::before` flicker, `neonPulse`) — never used as a substitute for real motion design, never fast/high-contrast enough to be a photosensitivity risk.
+4. **Explicit state, explicit close.** Modals close only via their `X`/`[ CLOSE ]` control, never backdrop click; state changes (mode chosen, coin spent, answer locked) must be deliberate, not accidental.
+5. **High-energy visuals with constrained motion.** Flicker, glitch, and blink effects are intended to avoid strobing (see `body::before` flicker and `neonPulse`). This is a design target, not a photosensitivity safety assessment.
 
-## Accessibility & Inclusion
+## Accessibility and inclusion
 
-- **WCAG AA contrast**: 4.5:1 minimum for body text against its background, in both the dark (default) and light (`.light` class) themes.
-- **No seizure-risk motion**: no strobe, no rapid high-contrast flashing. Existing `flicker`/`blink`/`glitch` effects must stay within safe amplitude/frequency — flagged explicitly by the user as a hard constraint, not a nice-to-have.
-- **Screen reader support**: meaningful `aria-label`s on icon-only controls (already the pattern for close/X buttons), live-region announcements for score/state changes where practical, and no information conveyed by color/animation alone without a text or icon fallback.
+- **Light-theme accent contrast**: the 12 game accent tokens are checked at 4.5:1 or higher against the two light-theme backgrounds in `DESIGN.md`. This is not a full application WCAG AA audit.
+- **Motion design target**: avoid strobing and rapid, high-contrast flashing. The repository does not contain a photosensitivity safety assessment.
+- **Screen reader support**: meaningful `aria-label`s on icon-only controls (already the pattern for close/X buttons), live-region announcements for score/state changes where practical, and no information conveyed by colour/animation alone without a text or icon fallback.
