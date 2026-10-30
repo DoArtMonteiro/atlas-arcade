@@ -1,6 +1,6 @@
 ---
 name: Atlas Arcade
-description: A retro CRT arcade cabinet of geography mini-games: pixel chrome, twelve neon identities, one signal colour.
+description: "A retro CRT arcade cabinet of geography mini-games: pixel chrome, twelve neon identities, one signal colour."
 colors:
   signal-cyan: "#00d4ff"
   pulse-green: "#00ff41"
