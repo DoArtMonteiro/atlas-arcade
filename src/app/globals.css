@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @import "@fontsource/press-start-2p";
 @import "@fontsource/vt323";
+@import "maplibre-gl/dist/maplibre-gl.css";
 
 /* Class-based dark strategy: `dark:` utilities apply under html.dark (default). */
 @custom-variant dark (&:where(.dark, .dark *));
@@ -245,4 +246,47 @@ body::before {
   pointer-events: none;
   z-index: 9999;
   animation: flicker 8s infinite;
+}
+
+.live-globe-map .maplibregl-ctrl-top-right {
+  top: 8px;
+  right: 8px;
+}
+
+.live-globe-map .maplibregl-ctrl-bottom-right {
+  right: 8px;
+  bottom: 8px;
+}
+
+.live-globe-map .maplibregl-ctrl-group {
+  overflow: hidden;
+  border: 1px solid var(--color-arcade-border);
+  border-radius: 0;
+  background: rgb(8 8 16 / 92%);
+  box-shadow: 0 0 12px rgb(0 212 255 / 14%);
+}
+
+.live-globe-map .maplibregl-ctrl-group button {
+  width: 44px;
+  height: 44px;
+  background-color: transparent;
+}
+
+.live-globe-map .maplibregl-ctrl-group button + button {
+  border-top: 1px solid var(--color-arcade-border);
+}
+
+.live-globe-map .maplibregl-ctrl-group button:hover {
+  background-color: rgb(0 212 255 / 14%);
+}
+
+.live-globe-map .maplibregl-ctrl-attrib {
+  max-width: min(calc(100vw - 32px), 420px);
+  color: #d9e4ef;
+  background: rgb(8 8 16 / 88%);
+  font: 12px/1.4 "VT323", monospace;
+}
+
+.live-globe-map .maplibregl-ctrl-attrib a {
+  color: #00d4ff;
 }
