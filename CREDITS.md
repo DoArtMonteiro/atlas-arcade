@@ -2,11 +2,11 @@
 
 Atlas Arcade shows photographs and illustrations that are loaded at run time from Wikimedia Commons (and, for two files, English Wikipedia), and national flags loaded from flagcdn.com. None of them is stored in this repository.
 
-This file lists the author and licence of every Wikimedia file the game data points to. The author, licence and licence URL come from the MediaWiki API (`prop=imageinfo`, `iiprop=extmetadata`), fetched on 2026-11-12. Licences are set by the file uploader on Commons and can change; the file page linked in each row is the authority. Most of these licences (CC BY, CC BY-SA, GFDL) require attribution, and the CC BY-SA and GFDL ones also require that adaptations keep the same licence. Where the author field is blank in the metadata, the file page has to be checked by hand.
+This file lists the author and licence of every Wikimedia file referenced by `imageUrl` in `src/data/cities.ts` (73 entries) and `src/data/peaksValleys.ts` (156 entries), 229 references in total. The author, licence and licence URL come from the MediaWiki API (`prop=imageinfo`, `iiprop=extmetadata`), fetched on 2026-11-12. Licences are set by the file uploader on Commons and can change; the file page linked in each row is the authority. Most of these licences (CC BY, CC BY-SA, GFDL) require attribution, and the CC BY-SA and GFDL ones also require that adaptations keep the same licence. Where the author field is blank in the metadata, the file page has to be checked by hand.
 
 ## Flags
 
-Flags are loaded from [flagcdn.com](https://flagcdn.com), a service of [Flagpedia.net](https://flagpedia.net). Its home page asks for a backlink to flagpedia.net, states that the flags are based on vector files from Wikimedia Commons, and does not state a licence for the images. Terms: see the Flagpedia terms of use and API pages. National flags are generally treated as public domain, but that should be confirmed by the repository owner.
+Flags are loaded from [flagcdn.com](https://flagcdn.com), a service of [Flagpedia.net](https://flagpedia.net). Its home page asks for a backlink to flagpedia.net, states that the flags are based on vector files from Wikimedia Commons, and does not state a licence for the images. The licence and terms of use of the flag images were not verified; they should be read on the Flagpedia terms of use and API pages by the repository owner.
 
 ## Wikimedia photographs
 
